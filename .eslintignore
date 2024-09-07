@@ -1,0 +1,5 @@
+# Ignore build files
+build/
+
+# Ignore specific files
+src/components/Calculator.js
