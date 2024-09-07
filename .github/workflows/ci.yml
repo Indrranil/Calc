@@ -15,6 +15,9 @@ jobs:
         with:
           node-version: "14"
 
+      - name: Install Snyk
+        run: npm install -g snyk
+
       - name: Install dependencies
         run: npm install
 
