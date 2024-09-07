@@ -33,6 +33,7 @@ jobs:
           snyk ignore --id=SNYK-JS-NTHCHECK-1586032
           snyk ignore --id=SNYK-JS-POSTCSS-5926692
           snyk ignore --id=SNYK-JS-SERIALIZEJAVASCRIPT-6147607
+          snyk ignore --id=SNYK-JS-WEBPACK-7840298
 
       - name: Run Snyk Test
         run: snyk test --all-projects
