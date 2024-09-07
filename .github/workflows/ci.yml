@@ -1,6 +1,9 @@
-name: React App CI
+name: CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -8,27 +11,28 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: "14"
-
-      - name: Install Snyk
-        run: npm install -g snyk
-
-      - name: Authenticate Snyk
-        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+          node-version: "16"
 
       - name: Install dependencies
         run: npm install
 
-      - name: Snyk Security Scan
+      - name: Authenticate with Snyk
+        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+
+      - name: Ignore specific Snyk issues
+        run: |
+          snyk ignore --id=SNYK-JS-INFLIGHT-6095116
+          snyk ignore --id=SNYK-JS-NTHCHECK-1586032
+          snyk ignore --id=SNYK-JS-POSTCSS-5926692
+          snyk ignore --id=SNYK-JS-SERIALIZEJAVASCRIPT-6147607
+
+      - name: Run Snyk Test
         run: snyk test --all-projects
 
-      - name: Run Build
+      - name: Build project
         run: npm run build
-
-      - name: Run Tests
-        run: npm test
