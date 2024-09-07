@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+}
+
+.calculator {
+    width: 300px; /* Adjusted to fit a typical button layout */
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.display {
+    background: #333;
+    color: #fff;
+    font-size: 2.5rem;
+    padding: 20px;
+    text-align: right;
+    border-bottom: 2px solid #555;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px; /* Adds a gap between buttons for better visual separation */
+}
+
+button {
+    font-size: 1.6rem;
+    padding: 20px;
+    border: none;
+    background: #f7f7f7;
+    color: #333;
+    cursor: pointer;
+    transition:
+        background-color 0.3s,
+        box-shadow 0.2s;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+    background: #d0d0d0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button.operator {
+    background: #ff9500;
+    color: white;
+}
+
+button.operator:hover {
+    background: #e68900;
+}
+
+button.operator:active {
+    background: #cc7a00;
+}
+
+button.double-width {
+    grid-column: span 2;
+}
+
+button.triple-width {
+    grid-column: span 3;
+}
