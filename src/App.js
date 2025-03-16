@@ -9,7 +9,7 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/calculator" element={<Calculator />} />
+        <Route path="/calculator1" element={<Calculator />} />
         <Route path="/feedback" element={<FeedbackForm />} />
       </Routes>
     </div>
